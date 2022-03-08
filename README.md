@@ -1,4 +1,4 @@
-# Project-1
+# Aperitif
 *First Main Group Project
 
 ## User Statement
