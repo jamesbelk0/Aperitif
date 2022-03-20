@@ -12,7 +12,7 @@ modalBg.addEventListener('click', () => {
 });
 
 //openbreweryapi
-const apiUrl = 'https://api.openbrewerydb.org/breweries/search?query=goose_and_monkey';
+const apiUrl = 'https://api.openbrewerydb.org/breweries/search?query=goose';
 async function getBrew() {
   const response = await fetch(apiUrl);
   const data= await response.json();
@@ -20,6 +20,4 @@ async function getBrew() {
   console.log(data);
 }
 
-getBrew();
-
-
+document.querySelector('.is-success').addEventListener("click", ()=>getBrew());
