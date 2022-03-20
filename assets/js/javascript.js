@@ -10,14 +10,30 @@ steponeButton.addEventListener('click', () => {
 modalBg.addEventListener('click', () => {
   modal.classList.remove('is-active');
 });
+//modal 'save changes' click
+document.querySelector('.is-success').addEventListener("click", () => getBrew());
 
+//user input variables
+window.addEventListener('DOMContentLoaded', function () {
+  var postalInput = document.getElementById('postalCode');
+  var breweryInput = document.getElementById('dropdown');
+
+  function getUrl(e) {
+    var pi = postalInput.value;
+    var bt = breweryInput.value;
+    var url = apiUrl + pi + "/" + bt + ".html";
+  };
+});
 //openbreweryapi
-const apiUrl = 'https://api.openbrewerydb.org/breweries/search?query=goose';
+const apiUrl = 'https://api.openbrewerydb.org/breweries/search?query=';
 async function getBrew() {
-  const response = await fetch(apiUrl);
-  const data= await response.json();
-  const {postal_code, brewery_type } = data;
+  const response = await fetch(url);
+  const data = await response.json();
+  const { breweryInput, postalInput } = data;
   console.log(data);
 }
 
-document.querySelector('.is-success').addEventListener("click", ()=>getBrew());
+
+
+console.log(postalCode);
+console.log(dropdown);
