@@ -6,28 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <title>Aperitif</title>
+    <title>Aperitif</title>
 </head>
 
 <body>
-  <!-- Header -->
+    <!-- Header -->
 
   <section class="hero is-primary is-medium">
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
+            <!-- Having all items on the left hand side of the navbar allows the program to be mobile responsive.-->
             <a class="navbar-item">
               <h1 id="header">Aperitif</h1>
-            </a>
-          </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
               <a class="navbar-item is-active" id="#step-one">
-                Step One
+                <button class="button" id="stepOne">Step One</button>
               </a>
               <a class="navbar-item" id="#location">
                 Where are you?
@@ -38,70 +35,50 @@
               <a class="navbar-item" id="#flavor">
                 What flavor of drink?
               </a>
-            </div>
           </div>
         </div>
-      </nav>
+    </div>
+    </nav>
     </div>
   </section>
   <!-- Header End -->
-  <!-- Hero/Questionaire-->
-
-  <!-- After playing with this. I think our questionare should be in the modal element with a rough idea written below. Then we use javascript to input the data into fields below with links at the top to bring the user to the elements if we can swing it. I dont think ti will take very long once we get the API linked. I've made some inputs as placeholders for us and generated the areas the coorolate with the nav inputs -->
-
-
-  <!-- <button class="button is-primary is-large modal-button" data-target="modal">
-    Where would you like to drink?
-    </button> -->
-
-  <div class="modal">
+  <!-- Modal Data -->
+  <div class="modal is-active">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Modal title</p>
-        <button class="delete" aria-label="close"></button>
+        <p class="modal-card-title">Where are we at?</p>
+        <button class="delete" aria-label="close" onclick="$('modal').hide()" ></button>
       </header>
       <section class="modal-card-body">
         <section class="container">
           <div class="row">
             <!-- <img placement tag for background of hero> -->
-            <div class="field">
+            <div class="field" >
               <label class="label">Enter Zip Code</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Zip Code">
+                <input class="input"  type="text" placeholder="Your Zip Code" id ="postalCode">
               </div>
-              <p class="help">Please enter a 5 digit zip code.</p>
+              <p class="help" >Please enter a 5 digit zip code.</p>
             </div>
-            <br>
-            <!-- Radio Buttons -->
-            <label class="radio">
-              <input type="radio" name="answer">
-              Beer
-            </label>
-            <label class="radio">
-              <input type="radio" name="answer">
-              Cocktail
-            </label>
-            <label class="radio">
-              <input type="radio" name="answer">
-              Both
-            </label>
-            <br>
-            <br>
             <!-- Drop Down -->
-            <div class="field has-addons">
+            <div class="field has-addons" id="dropdown">
               <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select name="flavor">
-                    <option value="Options">What kind of drink are you feeling?</option>
-                    <option value="Smokey">Smokey</option>
-                    <option value="Fruity">Fruity</option>
+                <div class="select is-fullwidth" >
+                  <select name="brew_type">
+                    <option value="Options">What kind of brewery are you looking for?</option>
+                    <option value="micro">Micro</option>
+                    <option value="nano">Nano</option>
+                    <option value="regional">Regional</option>
+                    <option value="brewpub">Brew Pub</option>
+                    <option value="large">Large</option>
+                    <option value="planning">Planning</option>
+                    <option value="bar">Bar</option>
+                    <option value="contract">Contract</option>
+                    <option value="proprietor">Proprietor</option>
                     <!-- Figured we could link this to the array that is the close to what we are shooting for "flavor" wise-->
                   </select>
                 </div>
-              </div>
-              <div class="control">
-                <button type="submit" class="button is-primary">Whatcha feelin</button>
               </div>
             </div>
           </div>
@@ -112,27 +89,32 @@
         </footer>
     </div>
   </div>
-<!-- Readible text fields from the modal-->
-<div class="content">
-  <div id="location" class="">
-      <h2>Where You Are Headed!</h2>
-      <p>
+
+  <!-- Readible text fields from the modal-->
+  <div class="content">
+    <div class="columns is-mobile">
+      <!--Set the content to work in a column grid as well as being mobile responsive.-->
+      <div id="location" class="column is-one-third">
+        <h2>Where You Are Headed!</h2>
+        <p>
           Input some data with a location to the bar/establishment
-      </p>
-  </div>
-  <div id="choice" class="">
-      <h2>Your Drink of Choice!</h2>
-      <p>
+        </p>
+      </div>
+      <div id="choice" class="column is-one-third">
+        <h2>Your Drink of Choice!</h2>
+        <p>
           Repeat the input with an image if choice beer/cocktail/both. Thinking just a random stock image
-      </p>
-  </div>
-  <div id="flavor" class="">
-      <h2>What Style of Drink You Prefer</h2>
-      <p>
-          Generate an idea for the input that they selected. Figured keep it to one and keep it simplier than it sounds. 
-      </p>
-  </div>
-</div>
+        </p>
+      </div>
+      <div id="flavor" class="column is-one-third">
+        <h2>What Style of Drink You Prefer</h2>
+        <p>
+          Generate an idea for the input that they selected. Figured keep it to one and keep it simplier than
+          it sounds.
+        </p>
+      </div>
+    </div>
+    <script src="./assets/js/javascript.js"></script>
 </body>
 
 </html>
