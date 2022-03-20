@@ -45,7 +45,6 @@ getBrew();
 });
 //openbreweryapi
 
-
-
+// Removed getUrl()
 console.log(postalCode);
 console.log(dropdown);
