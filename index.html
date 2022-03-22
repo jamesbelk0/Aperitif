@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <title>Aperitif</title>
+</head>
+
+<body>
+  <!-- Header -->
+
+  <section class="hero is-primary is-medium">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <!-- Having all items on the left hand side of the navbar allows the program to be mobile responsive.-->
+            <a class="navbar-item">
+              <h1 id="header">Aperitif</h1>
+              <a class="navbar-item is-active" id="#step-one">
+                <button class="button" id="stepOne">Step One</button>
+              </a>
+              <a class="navbar-item" id="#location">
+                Where are wanting to go?
+              </a>
+              <a class="navbar-item" id="#map">
+                Would you like directions?
+              </a>
+          </div>
+        </div>
+    </div>
+    </nav>
+    </div>
+  </section>
+  <!-- Header End -->
+  <!-- Modal Data -->
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Where are we at?</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <section class="container">
+          <div class="row">
+            <!-- <img placement tag for background of hero> -->
+            <div class="field">
+              <label class="label">Enter Zip Code</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Your Zip Code" id="postalCode">
+              </div>
+              <p class="help">Please enter a 5 digit zip code.</p>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Save changes</button>
+          <button class="button">Cancel</button>
+        </footer>
+    </div>
+  </div>
+
+  <!-- Readible text fields from the modal-->
+  <div class="content">
+    <div class="columns is-mobile">
+      <!--Set the content to work in a column grid as well as being mobile responsive.-->
+      <div id="location" class="column is-one-half">
+        <h2>Where would you like a beer?</h2>
+        <div id="repos-container" class="card"></div>
+    </div>
+    <!-- Map -->
+    <div id="map" class="column is-one-half">
+      <h2>Need help with directions?</h2>
+      <p id="googleMap">
+        Link to Google Maps API
+      </p>
+    </div>
+  </div>
+  <script src="./assets/js/javascript.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 3. SO THAT I can choose where to go for a tasteful drink
 
 ## API
-1. https://www.openbrewerydb.org/
-2. https://www.thecocktaildb.com/api.php
+*https://www.openbrewerydb.org/
+*https://www.thecocktaildb.com/api.php
 
 ## 
