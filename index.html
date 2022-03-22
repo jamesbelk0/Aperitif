@@ -45,24 +45,22 @@
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Where are we at?</p>
-        <button class="delete" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
         <section class="container">
           <div class="row">
-            <!-- <img placement tag for background of hero> -->
             <div class="field">
-              <label class="label">Enter Your City Name</label>
+              <h2>Enter Your City Name</h2>
               <div class="control">
                 <input class="input" type="text" placeholder="Your City" id="cityname">
               </div>
               <p class="help">Please enter a city name.</p>
+              <input class="button" type="submit" value="Submit" id="submituser">
             </div>
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
+          <p>Please Click off to Close</p>
         </footer>
     </div>
   </div>
@@ -74,15 +72,16 @@
       <div id="location" class="column is-one-half">
         <h2>Where would you like a beer?</h2>
         <div id="repos-container" class="card"></div>
+      </div>
+      <!-- Map -->
+      <div id="map" class="column is-one-half">
+        <h2>Need help with directions?</h2>
+        <p id="googleMap">
+          Link to Google Maps API
+        </p>
+      </div>
     </div>
-    <!-- Map -->
-    <div id="map" class="column is-one-half">
-      <h2>Need help with directions?</h2>
-      <p id="googleMap">
-        Link to Google Maps API
-      </p>
-    </div>
-  </div>
-  <script src="./assets/js/javascript.js"></script>
+    <script src="./assets/js/javascript.js"></script>
 </body>
+
 </html>
