@@ -3,6 +3,7 @@ const steponeButton = document.querySelector('#stepOne');
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
 
+// close if click out of modal
 steponeButton.addEventListener('click', () => {
   modal.classList.add('is-active');
 });
@@ -10,41 +11,31 @@ steponeButton.addEventListener('click', () => {
 modalBg.addEventListener('click', () => {
   modal.classList.remove('is-active');
 });
+
 //modal 'save changes' click
-document.querySelector('.is-success').addEventListener("click", () => getUrl(url));
+document.querySelector('.button').addEventListener("click", modal.classList.remove('is-active'));
 
-//user input variables
-window.addEventListener('DOMContentLoaded', function getUrl() {
-  var postalInput = document.getElementById('postalCode');
-  var breweryInput = document.getElementById('dropdown');
-  
-
-  var pi = postalInput.value;
-  var bt = breweryInput.value;
-  const apiUrl = 'https://api.openbrewerydb.org/breweries?by_postal=';
-  var url = apiUrl + pi + "/" + bt;
-
-fetch(apiUrl, {
-  "method": "GET",
-  "headers": {
-    "by_postal":"",
-    "by_type": ""
-  }
-})
-    .then(response => response.json())
-    .then(data => console.log(data));
-  
-    async function getBrew() {
-    const response = await fetch(url);
-    const data = await response.json();
-    const { breweryInput, postalInput } = data;
-  }
-
-getBrew();
-
+// apiUrl and user input
+  const url = "https://api.openbrewerydb.org/breweries?by_postal="
+  const user = document.getElementById("zip").value;
+  const apiUrl = url + user;
+//fetch on click
+  $("#submituser").click(function() {
+  fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => console.log(data));
 });
-//openbreweryapi
 
-// Removed getUrl()
-console.log(postalCode);
-console.log(dropdown);
+
+// Defining async function
+async function getapi(url) {
+// Storing response
+const response = await fetch(url);
+// Storing data in form of JSON
+var data = await response.json();
+console.log(data);
+};
+
+
+// Calling that async function
+getapi(apiUrl);
