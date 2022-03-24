@@ -16,39 +16,56 @@ modalBg.addEventListener('click', () => {
 document.querySelector('.button').addEventListener("click", modal.classList.remove('is-active'));
 
 //user input variables
-var userFormEl = document.querySelector("#cityname");
-var cityInputEl = document.querySelector("#submituser");
-var brewCardEl = document.querySelector("#repos-container");
+const userFormEl = document.querySelector("#zip");
+const zipInputEl = document.getElementById("#zip");
+const repoContainerEl = document.querySelector('#repos-container');
+const repoSearchTerm = document.querySelector('#repo-search-term');
 
-var formSubmitHandler = function (event) {
-  //Prevent page from refreshing
+const formSubmitHandler = function (event) {
   event.preventDefault();
-  //get value from input (cityinput)
-  var userInput = cityInputEl.value.trim();
-
-  var getBrew = function (user) {
-  // format the github api url
-  var apiUrl = "https://api.openbrewerydb.org/breweries?by_city=" + userInput;
-  console.log(apiUrl);
-``
+  
+  const userInput = zipInputEl.value.trim();
+console.log(zipInputEl);
   if (userInput) {
     getBrew();
-    //clear old content
-    brewCardEl.textcontent = '';
-    cityInputEl.value = '';
-  } else {
-    alert("Please enter a city name");
-  }
 
-  // request to the url
-  fetch(apiUrl)
+    repoContainerEl.textContent = '';
+   zipInputEl.value = '';
+  } else {
+    alert('Please enter a city!');
+  }
+};
+
+  const getBrew = function (user) {
+    // format the github api url
+    const apiUrl = "https://api.openbrewerydb.org/breweries?by_postal=" + userInput;
+
+    fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
+        console.log(response);
         response.json().then(function (data) {
-          displayBrew(data, user)
-        })
+          console.log(data);
+        });
+      } else {
+        alert('Error: ' + response.statusText);
       }
     })
-}
-};
-userFormEl.addEventListener("#submituser", formSubmitHandler);
+    .catch(function (error) {
+      alert('Unable to connect to OpenBrew');
+    });
+  };
+    console.log(getBrew);
+  //   if (apiUrl) {
+  //     getBrew();
+  //     //clear old content
+  //     brewCardEl.textcontent = '';
+  //     zipInputEl.value = '';
+  //   } else {
+  //     alert("Please enter a city name");
+  //   }
+  // };
+
+
+// cityInputEl.addEventListener("click", getBrew());
+
