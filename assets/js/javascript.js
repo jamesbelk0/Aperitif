@@ -16,26 +16,30 @@ modalBg.addEventListener('click', () => {
 document.querySelector('.button').addEventListener("click", modal.classList.remove('is-active'));
 
 // apiUrl and user input
-  const url = "https://api.openbrewerydb.org/breweries?by_postal="
-  const user = document.getElementById("zip").value;
-  const apiUrl = url + user;
-//fetch on click
-  $("#submituser").click(function() {
-  fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => console.log(data));
-});
+const url = "https://api.openbrewerydb.org/breweries?by_postal="
+const user = document.getElementById('zip').value;
+const apiUrl = url + user;
 
 
-// Defining async function
-async function getapi(url) {
-// Storing response
-const response = await fetch(url);
-// Storing data in form of JSON
-var data = await response.json();
-console.log(data);
+getBrew = function getBrew() {
+  //fetch on click
+  $("#submituser").click(function () {
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => console.log(data));
+
+    // Defining async function
+    async function getBrew(url) {
+      // Storing response
+      const response = await fetch(url);
+      // Storing data in form of JSON
+      const data = await response.json();
+      console.log(data);
+      
+    };
+  });
 };
 
 
 // Calling that async function
-getapi(apiUrl);
+getBrew(apiUrl);
