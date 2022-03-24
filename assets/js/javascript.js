@@ -29,17 +29,21 @@ getBrew = function getBrew() {
       .then(data => console.log(data));
 
     // Defining async function
-    async function getBrew(url) {
+    async function getBrew(apiUrl) {
       // Storing response
       const response = await fetch(url);
       // Storing data in form of JSON
       const data = await response.json();
       console.log(data);
-      
+      $("#submituser").submit(function (e) {
+        e.preventDefault();
+      });
+
+      localStorage.getBrew('name', 'phone', 'street', 'website');
     };
   });
 };
-
+console.log(localStorage);
 
 // Calling that async function
-getBrew(apiUrl);
+
