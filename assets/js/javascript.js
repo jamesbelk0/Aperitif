@@ -2,7 +2,7 @@
 const steponeButton = document.querySelector('#stepOne');
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
-
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 // close if click out of modal
 steponeButton.addEventListener('click', () => {
   modal.classList.add('is-active');
@@ -41,7 +41,8 @@ $("#apiUrl").submit(function (e) {
         cards.append(`<div id="location" class="column is-one-half">
     
         <div id="repos-container" class="card"></div>
-        <h3 class="name">${card.name} <button class="button favorite">Favorite</button></h3>
+        <h3 class="name" input class="button favorite" type="submit" value="Favorite" onclick="favorite_button() id="favorites"">${card.name}</button>
+        </h3>
         <ul class="pullData">
           <li id="street">${card.street}</li>
           <li class="city">${card.city}</li>
@@ -51,14 +52,16 @@ $("#apiUrl").submit(function (e) {
       </div>
       `)
       }
-    })
-
-      .catch ((error) => {
-        console.error(error);
+      // local storage
+      const favorite_button = $('#favorites')
+      favorite_button.addEventListener('click', function () {
+        const searchTerm = apiUrl.value;
+        searchHistory.push(searchTerm);
+        localStorage.setItem("favoriteCard")
       });
+
+      console.log(localStorage);
+
+    })
 });
 
-//     localStorage.setItem(apiUrl, JSON.stringify(favorite));
-//   };
-// });
-console.log(localStorage);
