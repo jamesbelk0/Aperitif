@@ -1,0 +1,50 @@
+*{
+    font-family: "trebuchet ms";
+}
+
+html, body{
+    background-color: lightgray;
+    min-height: 100%;
+}
+
+.box1{
+    background-color: #00D1B2;
+    margin: 25px;
+    margin-right: 10px;
+    border: 5px solid black;
+}
+
+.box2{
+    background-color: #00D1B2;
+    margin: 25px;
+    margin-left: 10px;
+    border: 5px solid black;
+}
+
+.modal-card-head{
+    background-color: #00D1B2;
+    padding: auto;
+}
+
+.modal-card-body{
+    background-color: lightgray;
+}
+
+.modal-card-foot{
+    background-color: lightgray;
+}
+
+.modal-title{
+    background-color: lightgray;
+    font-weight: bold;
+}
+
+#googleMap{
+    background-color: lightgray;
+    margin: 0px;
+    padding: 5px;
+}
+
+#tweak, #header{
+    font-weight: bold;
+}

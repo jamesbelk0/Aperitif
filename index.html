@@ -19,7 +19,7 @@
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
-          <div class="navbar-brand">
+          <div class="navbar-brand" id="tweak">
             <a class="navbar-item">
               <h1 id="header">Aperitif</h1>
               <a class="navbar-item is-active" id="#step-one">
@@ -50,7 +50,7 @@
         <section class="container">
           <div class="row">
             <div class="field">
-              <h2>Enter Your Zip Code</h2>
+              <h2 class="modal-title">Enter Your Zip Code</h2>
               <div class="control">
                 <form type="button" id="apiUrl">
                   <label for="zipCode" placeholder="Your Zip-Code"></label>
@@ -67,8 +67,8 @@
   </div>
 
   <!-- Readible text fields from the modal-->
-  <div class="content">
-    <div class="columns is-mobile" id="cards">
+  <div class="content columns is-mobile">
+    <div class="box1 column is-half-mobile" id="cards">
       <h2>Where would you like a beer?</h2>
       <!--Set the content to work in a column grid as well as being mobile responsive.-->
       <!-- <div id="location" class="column is-one-half">
@@ -82,9 +82,9 @@
           <li class="website">website</li>
         </ul>
       </div> -->
-
+    </div>
       <!-- Map -->
-      <div id="map" class="column is-one-half">
+      <div id="map" class="box2 column is-half-mobile">
         <h2>Need help with directions?</h2>
         <p id="googleMap">
           Link to Google Maps API
