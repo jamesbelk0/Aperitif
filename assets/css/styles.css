@@ -39,6 +39,10 @@ html, body{
     font-weight: bold;
 }
 
+.navbar{
+    border: 2px solid black;
+}
+
 #googleMap{
     background-color: lightgray;
     margin: 0px;
@@ -47,4 +51,19 @@ html, body{
 
 #tweak, #header{
     font-weight: bold;
+}
+
+#location{
+    background-color: lightgray;
+    border: 5px solid black;
+    margin: 10px;
+}
+
+.name{
+    background-color: lightgray;
+    border-bottom: 2px solid black;
+}
+
+.title{
+    border-bottom: 2px solid black;
 }
