@@ -15,30 +15,6 @@ modalBg.addEventListener('click', () => {
 //modal 'save changes' click
 document.querySelector('.button').addEventListener("click", modal.classList.remove('is-active'));
 
-// dadjoke api
-
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
-    'X-RapidAPI-Key': '0a428a9452mshf893f8c3b3d30efp19ce95jsna62e53438fac'
-  }
-};
-fetch('https://dad-jokes.p.rapidapi.com/random/joke', options)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    const jokes = $('.jokes')
-    for (let i = 0; i < data.body.length; i++) {
-      var joke = data.body[i]
-      jokes.append(`
-        <ul class="pullData card" id="jokes">
-      <li id="setup">Set-Up: ${joke.setup}</li>
-      <li id="punchline">Punch-Line:${joke.punchline}</li>
-    </ul>`);
-    }
-  });
-
 // user input
 function getInputValue() {
   const user = document.getElementById('myInput').value;
@@ -62,8 +38,7 @@ $("#apiUrl").submit(function (e) {
       // for loop for multiple cards
       for (let i = 0; i < data.length; i++) {
         var card = data[i]
-        cards.append(`
-        <div id="location" class="column is-one-half">
+        cards.append(`<div id="location" class="column is-one-half">
     
         <div id="repos-container" class="card"></div>
         <h3 class="name" input class="button favorite" type="submit" value="Favorite" onclick="favorite_button() id="favorites"">${card.name}</button>
@@ -77,5 +52,43 @@ $("#apiUrl").submit(function (e) {
       </div>
       `)
       }
+
     })
+
+
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
+    'X-RapidAPI-Key': '0a428a9452mshf893f8c3b3d30efp19ce95jsna62e53438fac'
+  }
+};
+
+fetch('https://dad-jokes.p.rapidapi.com/random/joke', options)
+  .then(response => response.json())
+  .then(data => {
+    const joke = $('#joke');
+    for (let i = 0; i < data.length; i++) {
+      var jokes = data[i]
+      joke.append(`<div id="joke" class="column is-one-half">
+
+        <div id="repos-container" class="card"></div>
+          <h3 class="name" id="favorites">Joke of the Day!</h3>
+            <ul class="pullData">
+             <li id="setup">Set Up: ${jokes.setup}</li>
+             <li id="punchline">Punch Line: ${jokes.punchline}</li>
+           </ul>
+      </div>
+    `)
+    }
+  });
 });
+// // local storage
+//       const favorite_button = $('#favorites')
+//       favorite_button.addEventListener('click', function () {
+//         const searchTerm = apiUrl.value;
+//         searchHistory.push(searchTerm);
+//         localStorage.setItem("favoriteCard")
+//       });
+
+//       console.log(localStorage);
