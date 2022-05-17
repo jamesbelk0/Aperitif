@@ -2,7 +2,9 @@
 const steponeButton = document.querySelector('#stepOne');
 const modalBg = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
+
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+
 // close if click out of modal
 steponeButton.addEventListener('click', () => {
   modal.classList.add('is-active');
@@ -16,7 +18,6 @@ modalBg.addEventListener('click', () => {
 document.querySelector('.button').addEventListener("click", modal.classList.remove('is-active'));
 
 // dadjoke api
-
 const options = {
   method: 'GET',
   headers: {
@@ -79,3 +80,5 @@ $("#apiUrl").submit(function (e) {
       }
     })
 });
+
+
